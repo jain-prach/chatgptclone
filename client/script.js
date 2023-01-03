@@ -98,14 +98,15 @@ const handleSubmit = async (e) => {
 
     //fetching data from server --> getting bot's response
     const response = await fetch("http://localhost:5000", {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+            prompt: data.get("prompt")
         }),
     });
+    console.log(response);
 
     clearInterval(loadInterval); //no longer loading
     messageDiv.innerHTMl = '';
