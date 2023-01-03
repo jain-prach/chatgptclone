@@ -21,7 +21,7 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 //setting some middlewares
 app.use(cors({
-    origin: '*'
+    origin: "*"
 })); //allow our server to be called from the frontend
 app.use(express.json()); //allow to pass json from the frontend to the backend
 
@@ -56,8 +56,8 @@ app.post('/', async (req, res) => {
             bot: response.data.choices[0].text
         })
     } catch (error) { //if something goes wrong 
-        console.log(error);
-        res.status(500).send({ error }) //to know what happened 
+        console.error(error)
+        res.status(500).send(error || 'Something went wrong'); //to know what happened 
     }
 })
 
